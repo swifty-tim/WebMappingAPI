@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Mapping 2017 - GeoDjango Tutorial</title>
+
+    {% load leaflet_tags %}
+    {% load static %}
+
+    {% leaflet_js %}
+    {% leaflet_css %}
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <style>
+
+    </style>
+    <link rel="stylesheet" type="text/css" href="{% static "world/css/my_style.css" %}">
+    <script src="{% static "world/js/my_script.js" %}"></script>
+
+
+</head>
+<body>
+
+<h3>{{ object.name }}</h3>
+
+<table>
+    <tr>
+        <td style="font-weight: bold">Area</td>
+        <td>{{ object.area }}</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold">Population 2005</td>
+        <td>{{ object.pop2005 }}</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold">FIPS Code</td>
+        <td>{{ object.fips }}</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold">2 Digit ISO</td>
+        <td>{{ object.iso2 }}</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold">3 Digit ISO</td>
+        <td>{{ object.iso3 }}</td>
+    </tr>
+</table>
+
+<p id="geom" style="visibility: hidden; display: none">{{ object.mpoly.geojson }}</p>
+<p id="bbox" style="visibility: hidden; display: none">{{ object.mpoly.envelope.geojson }}</p>
+
+{% leaflet_map "my_map" callback="map_init" %}
+
+</body>
+</html>
