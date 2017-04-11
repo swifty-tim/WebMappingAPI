@@ -1,0 +1,23 @@
+{
+  "name": "ratchet-example",
+  "authors": [
+    "Timothy Barnard <timothy.barnard@mydit.ie>"
+  ],
+  "description": "\\\\",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ratchet": "^2.0.2",
+    "handlebars": "^4.0.5",
+    "fastclick": "^1.0.6",
+    "jquery": "^3.1.1"
+  }
+}

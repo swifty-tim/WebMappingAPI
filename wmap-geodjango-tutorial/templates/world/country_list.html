@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GeoDjango Demo Country List</title>
+</head>
+<body>
+<h2>GeoDjango Demo Country List</h2>
+
+{% for country in object_list %}
+    <p><a href="{% url 'world:country_detail_map' country.id %}">{{ country }}</a></p>
+{% endfor %}
+
+</body>
+</html>
