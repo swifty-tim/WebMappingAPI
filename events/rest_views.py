@@ -1,21 +1,63 @@
 # -*- coding: utf-8 -*-
-from rest_framework import permissions, generics, authentication, status
+from . import models
+from . import serializers
+from rest_framework import permissions
+from EventAPI import settings
+
 from django.contrib.auth import authenticate, login, logout, get_user_model
-from rest_framework.authtoken.models import Token
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework import permissions, authentication, status, generics
+from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from rest_framework.response import Response
-from .models import Event, Attendees
-from .serializers import EventSerializer, AttendeesSerializer
+from rest_framework.reverse import reverse
+from rest_framework import exceptions
+from django.contrib.auth import get_user_model
+from django.contrib.gis.geos import GEOSGeometry, LineString, Point, Polygon
+from rest_framework.authtoken.models import Token
+# from rest_framework.decorators import api_view, permission_classes
+from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
+from django.utils.decorators import method_decorator
 
-from django.shortcuts import render
+
+@api_view(['POST', ])
+class UpdateEvent(generics.UpdateAPIView):
+    authentication_classes = (authentication.TokenAuthentication, authentication.SessionAuthentication)
+    serializer_class = serializers.EventSerializer
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, *args, **kwargs):
+        return super(UpdateEvent, self).dispatch(*args, **kwargs)
+
+    def get_object(self):
+        return get_user_model().objects.get(email=self.request.user.email)
+
+    def perform_update(self, serializer, **kwargs):
+        try:
+            lat1 = float(self.request.data.get("lat", False))
+            lon1 = float(self.request.data.get("lon", False))
+            # lat2 = float(self.request.query_params.get("lat", False))
+            # lon2 = float(self.request.query_params.get("lon", False))
+            if lat1 and lon1:
+                point = Point(lon1, lat1)
+            # elif lat2 and lon2:
+            #     point = Point(lon2, lat2)
+            else:
+                point = None
+
+            if point:
+                # serializer.instance.last_location = point
+                serializer.save(location = point)
+            return serializer
+        except:
+            pass
 
 
+@api_view(['GET', ])
 class EventRetrieveAPI(generics.ListAPIView):
     permission_classes = (permissions.IsAuthenticated,)
-    serializer_class = EventSerializer
+    serializer_class = serializers.EventSerializer
 
     def get_queryset(self):
-        return Event.objects.filter(owner=1)
+        return models.Event.objects.filter(owner=1)
 
 
 @api_view(["GET", ])
