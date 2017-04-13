@@ -57,6 +57,13 @@ class EventRetrieveAPI(generics.ListAPIView):
         return models.Event.objects.filter(owner=1)
 
 
+class AttendeeRetrieveAPI(generics.ListAPIView):
+    serializer_class = serializers.EventSerializer
+
+    def get_queryset(self):
+        return models.Attendees.objects.filter(owner=1)
+
+
 @api_view(["GET", ])
 @permission_classes((permissions.AllowAny,))
 def obtain_auth_token(request):

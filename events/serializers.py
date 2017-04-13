@@ -12,7 +12,7 @@ class EventSerializer(geo_serializers.GeoFeatureModelSerializer):
     url = serializers.SerializerMethodField()
 
     class Meta:
-        model = get_user_model()
+        model = models.Event
         geo_field = "location"
         fields = ('name', 'time', 'description', 'location', 'owner')
 
@@ -20,13 +20,13 @@ class EventSerializer(geo_serializers.GeoFeatureModelSerializer):
         return self.context["request"].build_absolute_uri(reverse("rest:user-username", kwargs={"uid": obj.pk}))
 
 
+
 class AttendeesSerializer(geo_serializers.GeoFeatureModelSerializer):
 
     url = serializers.SerializerMethodField()
 
     class Meta:
-        model = get_user_model()
-        geo_field = "location"
+        model = models.Attendees
         fields = ('attendee', 'event')
 
     def get_url(self, obj):
