@@ -13,38 +13,80 @@ from rest_framework import exceptions
 from django.contrib.auth import get_user_model
 from django.contrib.gis.geos import GEOSGeometry, LineString, Point, Polygon
 from rest_framework.authtoken.models import Token
+
+from django.http import Http404
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
 # from rest_framework.decorators import api_view, permission_classes
 from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
 from django.utils.decorators import method_decorator
 
 
 
-class createEvent(generics.CreateAPIView):
-    #authentication_classes = (authentication.TokenAuthentication, authentication.SessionAuthentication)
-    serializer_class = serializers.EventSerializer
+class EventList(APIView):
+    """
+    List all snippets, or create a new snippet.
+    """
+    def get(self, request, format=None):
+        snippets = models.Event.objects.all()
+        serializer = serializers.EventSerializer(snippets, many=True)
+        return Response(serializer.data)
 
-    def get_queryset(self):
-        return models.Event.objects.get(owner=3)
+    def post(self, request, format=None):
+        serializer = serializers.EventSerializer(data=request.data)
+        if serializer.is_valid():
+            try:
+                lat1 = float(self.request.data.get("lat", False))
+                lon1 = float(self.request.data.get("lon", False))
+                # lat2 = float(self.request.query_params.get("lat", False))
+                # lon2 = float(self.request.query_params.get("lon", False))
+                if lat1 and lon1:
+                    point = Point(lon1, lat1)
+                # elif lat2 and lon2:
+                #     point = Point(lon2, lat2)
+                else:
+                    point = None
 
-    def perform_create(self, serializer):
+                if point:
+                    # serializer.instance.last_location = point
+                    serializer.save(last_location=point)
+                return serializer
+            except:
+                pass
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class EventDetail(APIView):
+    """
+    Retrieve, update or delete a snippet instance.
+    """
+
+    def get_object(self, pk):
         try:
-            lat1 = float(self.request.data.get("lat", False))
-            lon1 = float(self.request.data.get("lon", False))
-            # lat2 = float(self.request.query_params.get("lat", False))
-            # lon2 = float(self.request.query_params.get("lon", False))
-            if lat1 and lon1:
-                point = Point(lon1, lat1)
-            # elif lat2 and lon2:
-            #     point = Point(lon2, lat2)
-            else:
-                point = None
+            return models.Event.objects.get(pk=pk)
+        except models.Event.DoesNotExist:
+            raise Http404
 
-            if point:
-                # serializer.instance.last_location = point
-                serializer.save(location = point)
-            return serializer
-        except:
-            pass
+    def get(self, request, pk, format=None):
+        event = self.get_object(pk)
+        serializer = serializers.EventSerializer(event)
+        return Response(serializer.data)
+
+    def put(self, request, pk, format=None):
+        event = self.get_object(pk)
+        serializer = serializers.geo_serializers(event, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        snippet = self.get_object(pk)
+        snippet.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 
 class EventRetrieveAPI(generics.ListAPIView):
