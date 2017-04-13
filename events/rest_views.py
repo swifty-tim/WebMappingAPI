@@ -22,10 +22,6 @@ class UpdateEvent(generics.CreateAPIView):
     authentication_classes = (authentication.TokenAuthentication, authentication.SessionAuthentication)
     serializer_class = serializers.EventSerializer
 
-    @method_decorator(csrf_exempt)
-    def dispatch(self, *args, **kwargs):
-        return super(UpdateEvent, self).dispatch(*args, **kwargs)
-
     def get_object(self):
         return get_user_model().objects.get(email=self.request.user.email)
 
@@ -51,7 +47,6 @@ class UpdateEvent(generics.CreateAPIView):
 
 
 class EventRetrieveAPI(generics.ListAPIView):
-    permission_classes = (permissions.IsAuthenticated,)
     serializer_class = serializers.EventSerializer
 
     def get_queryset(self):
