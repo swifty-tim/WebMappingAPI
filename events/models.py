@@ -21,9 +21,8 @@ class Event(models.Model):
         blank=True,
         verbose_name="name"
     )
-    time = models.DateTimeField(
-        auto_now_add=True
-    )
+    time = models.DateTimeField()
+
     description = models.CharField(
         max_length=255,
         blank=True,
@@ -52,6 +51,7 @@ class Event(models.Model):
     def __str__(self):
         return "{}, ({}), at {} ... cr={}, mod={}" \
             .format(self.name, self.time, self.location, self.created, self.modified)
+
 
 class Attendees(models.Model):
     attendee = models.ForeignKey(
