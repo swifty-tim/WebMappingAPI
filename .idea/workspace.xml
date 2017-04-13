@@ -59,8 +59,8 @@
           <file leaf-file-name="rest_views.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/events/rest_views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="172">
-                  <caret line="21" column="17" lean-forward="false" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="17" />
+                <state relative-caret-position="517">
+                  <caret line="59" column="51" lean-forward="true" selection-start-line="59" selection-start-column="51" selection-end-line="59" selection-end-column="51" />
                   <folding>
                     <element signature="e#24#44#0" expanded="true" />
                   </folding>
@@ -935,8 +935,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/events/rest_views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="21" column="17" lean-forward="false" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="17" />
+        <state relative-caret-position="517">
+          <caret line="59" column="51" lean-forward="true" selection-start-line="59" selection-start-column="51" selection-end-line="59" selection-end-column="51" />
           <folding>
             <element signature="e#24#44#0" expanded="true" />
           </folding>

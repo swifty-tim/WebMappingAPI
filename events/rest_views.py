@@ -19,7 +19,7 @@ from django.utils.decorators import method_decorator
 
 
 @api_view(['POST', ])
-class UpdateEvent(generics.UpdateAPIView):
+class UpdateEvent(generics.CreateAPIView):
     authentication_classes = (authentication.TokenAuthentication, authentication.SessionAuthentication)
     serializer_class = serializers.EventSerializer
 
