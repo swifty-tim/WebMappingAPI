@@ -54,15 +54,15 @@ class Event(models.Model):
 class Attendees(models.Model):
     attendee = models.ForeignKey(
         User,
-        related_name="attendee_name",
         verbose_name="attendee",
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        default=1
     )
     event = models.ForeignKey(
         Event,
-        related_name="event_name",
         verbose_name="event",
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        default=1
     )
     created = models.DateTimeField(
         auto_now_add=True
@@ -73,3 +73,4 @@ class Attendees(models.Model):
 
     def __str__(self):
         return "{} owned by {}".format(self.attendee.first_name, self.event.name)
+
