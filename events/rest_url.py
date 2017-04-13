@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse
 from . import views, rest_views
 
 urlpatterns = [
-    url(r'events/', rest_views.EventRetrieveAPI.as_view(), name="events"),
+    url(r'events/', rest_views.EventRetrieveAPI, name="events"),
     url(r'newevent/', rest_views.UpdateEvent, name="UpdateEvent"),
     url(r'^token-auth/$', rest_views.obtain_auth_token, name='obtain-token-auth'),
     url(r'^register', rest_views.register, name="register"),
