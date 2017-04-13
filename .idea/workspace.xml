@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af04405d-3725-4f79-aaab-b14667a470b5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/events/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EventAPI/urls.py" afterPath="$PROJECT_DIR$/EventAPI/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/events/views.py" afterPath="$PROJECT_DIR$/events/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/events/forms.py" afterPath="$PROJECT_DIR$/events/forms.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,13 +19,25 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/events/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="636">
-                  <caret line="75" column="0" lean-forward="true" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+                <state relative-caret-position="666">
+                  <caret line="77" column="30" lean-forward="true" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
                   <folding>
                     <element signature="e#0#75#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="forms.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/events/forms.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="75">
+                  <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#0#46#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -114,26 +123,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="my_style.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/static/events/my_style.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="420">
-                  <caret line="28" column="23" lean-forward="false" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="my_script.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/static/js/my_script.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
         </leaf>
       </split-first>
       <split-second>
@@ -182,7 +171,6 @@
         <option value="$PROJECT_DIR$/events/serializers.py" />
         <option value="$PROJECT_DIR$/events/rest_urls.py" />
         <option value="$PROJECT_DIR$/events/rest_url.py" />
-        <option value="$PROJECT_DIR$/events/forms.py" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/landing.html" />
         <option value="$PROJECT_DIR$/templates/events/landing.html" />
@@ -197,6 +185,7 @@
         <option value="$PROJECT_DIR$/EventAPI/urls.py" />
         <option value="$PROJECT_DIR$/events/urls.py" />
         <option value="$PROJECT_DIR$/events/views.py" />
+        <option value="$PROJECT_DIR$/events/forms.py" />
       </list>
     </option>
   </component>
@@ -797,14 +786,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/events/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/events/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -955,10 +936,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/events/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="636">
-          <caret line="75" column="0" lean-forward="true" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+        <state relative-caret-position="666">
+          <caret line="77" column="30" lean-forward="true" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
           <folding>
             <element signature="e#0#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/events/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>

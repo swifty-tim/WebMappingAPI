@@ -1,4 +1,8 @@
+from django.contrib.auth import get_user_model
 from django import forms
+from django.forms.forms import NON_FIELD_ERRORS
+from django.forms import ModelForm
+from . import models
 
 
 class PasswordForm(forms.Form):
@@ -58,3 +62,11 @@ class LoginForm(forms.Form):
         max_length=255,
         required=True,
     )
+
+class UserProfileForm(ModelForm):
+    class Meta:
+        model = get_user_model()
+        fields = ['first_name', 'last_name', 'email', 'last_location']
+        widgets = {
+            'last_location': forms.HiddenInput()
+        }
