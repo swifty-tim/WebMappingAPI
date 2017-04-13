@@ -18,7 +18,6 @@ from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
 from django.utils.decorators import method_decorator
 
 
-@api_view(['POST', ])
 class UpdateEvent(generics.CreateAPIView):
     authentication_classes = (authentication.TokenAuthentication, authentication.SessionAuthentication)
     serializer_class = serializers.EventSerializer
@@ -51,7 +50,6 @@ class UpdateEvent(generics.CreateAPIView):
             pass
 
 
-@api_view(['GET', ])
 class EventRetrieveAPI(generics.ListAPIView):
     permission_classes = (permissions.IsAuthenticated,)
     serializer_class = serializers.EventSerializer
