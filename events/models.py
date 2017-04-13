@@ -35,9 +35,9 @@ class Event(models.Model):
     )
     owner = models.ForeignKey(
         User,
-        related_name="list_owner",
         verbose_name="owner",
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        default=1
     )
     created = models.DateTimeField(
         auto_now_add=True
@@ -45,8 +45,6 @@ class Event(models.Model):
     modified = models.DateTimeField(
         auto_now=True
     )
-
-    objects = models.GeoManager()
 
     def __str__(self):
         return "{}, ({}), at {} ... cr={}, mod={}" \
@@ -75,9 +73,3 @@ class Attendees(models.Model):
 
     def __str__(self):
         return "{} owned by {}".format(self.attendee.first_name, self.event.name)
-
-
-@receiver(post_save, sender=settings.AUTH_USER_MODEL)
-def create_auth_token(sender, instance=None, created=False, **kwargs):
-    if created:
-        Token.objects.create(user=instance)
