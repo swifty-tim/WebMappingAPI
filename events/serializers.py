@@ -9,8 +9,6 @@ from django.contrib.gis.geos import GEOSGeometry, LineString, Point, Polygon
 
 class EventSerializer(geo_serializers.GeoFeatureModelSerializer):
 
-    url = serializers.SerializerMethodField()
-
     class Meta:
         model = models.Event
         geo_field = "location"
@@ -22,8 +20,6 @@ class EventSerializer(geo_serializers.GeoFeatureModelSerializer):
 
 
 class AttendeesSerializer(geo_serializers.GeoFeatureModelSerializer):
-
-    url = serializers.SerializerMethodField()
 
     class Meta:
         model = models.Attendees
