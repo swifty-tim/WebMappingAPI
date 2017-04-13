@@ -24,7 +24,7 @@ class createEvent(generics.CreateAPIView):
     serializer_class = serializers.EventSerializer
 
     def get_queryset(self):
-        return models.Event.objects.get(owner=self.request.user)
+        return models.Event.objects.get(owner=3)
 
     def perform_create(self, serializer):
         try:
