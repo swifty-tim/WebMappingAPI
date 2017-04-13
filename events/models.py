@@ -47,6 +47,11 @@ class Event(models.Model):
         auto_now=True
     )
 
+    objects = models.GeoManager()
+
+    def __str__(self):
+        return "{}, ({}), at {} ... cr={}, mod={}" \
+            .format(self.name, self.time, self.location, self.created, self.modified)
 
 class Attendees(models.Model):
     attendee = models.ForeignKey(
