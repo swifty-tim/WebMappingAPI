@@ -54,14 +54,20 @@ class EventRetrieveAPI(generics.ListAPIView):
     serializer_class = serializers.EventSerializer
 
     def get_queryset(self):
-        return models.Event.objects.filter(owner=1)
+        return models.Event.objects.all()
+
+    def get_serializer_context(self):
+        return {"request": self.request}
 
 
 class AttendeeRetrieveAPI(generics.ListAPIView):
     serializer_class = serializers.EventSerializer
 
     def get_queryset(self):
-        return models.Attendees.objects.filter(owner=1)
+        return models.Attendees.objects.all()
+
+    def get_serializer_context(self):
+        return {"request": self.request}
 
 
 @api_view(["GET", ])
