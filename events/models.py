@@ -15,19 +15,6 @@ from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
 
 
-class User(User):
-    created = models.DateTimeField(
-        auto_now_add=True
-    )
-    modified = models.DateTimeField(
-        auto_now=True
-    )
-
-    def __str__(self):
-        return "{}, ({}), last seen at {}, mod={}" \
-            .format(self.username, self.get_full_name(), self.created, self.modified)
-
-
 class Event(models.Model):
     name = models.CharField(
         max_length=100,
