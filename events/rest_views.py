@@ -23,10 +23,9 @@ from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
 from django.utils.decorators import method_decorator
 
 
-
 class EventList(APIView):
     """
-    List all snippets, or create a new snippet.
+    List all snippets, or create a new event.
     """
     def get(self, request, format=None):
         snippets = models.Event.objects.all()
@@ -60,7 +59,7 @@ class EventList(APIView):
 
 class EventDetail(APIView):
     """
-    Retrieve, update or delete a snippet instance.
+    Retrieve, update or delete a snippet event.
     """
 
     def get_object(self, pk):
@@ -89,24 +88,52 @@ class EventDetail(APIView):
 
 
 
-class EventRetrieveAPI(generics.ListAPIView):
-    serializer_class = serializers.EventSerializer
 
-    def get_queryset(self):
-        return models.Event.objects.all()
+class AttendeeList(APIView):
+    """
+    List all snippets, or create a new attendee.
+    """
+    def get(self, request, format=None):
+        attendees = models.Attendees.objects.all()
+        serializer = serializers.AttendeesSerializer(attendees, many=True)
+        return Response(serializer.data)
 
-    def get_serializer_context(self):
-        return {"request": self.request}
+    def post(self, request, format=None):
+        serializer = serializers.AttendeesSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class AttendeeRetrieveAPI(generics.ListAPIView):
-    serializer_class = serializers.AttendeesSerializer
+class AttendeeDetail(APIView):
+    """
+    Retrieve, update or delete a attendee instance.
+    """
 
-    def get_queryset(self):
-        return models.Attendees.objects.all()
+    def get_object(self, pk):
+        try:
+            return models.Attendees.objects.get(pk=pk)
+        except models.Attendees.DoesNotExist:
+            raise Http404
 
-    def get_serializer_context(self):
-        return {"request": self.request}
+    def get(self, request, pk, format=None):
+        attendee = self.get_object(pk)
+        serializer = serializers.AttendeesSerializer(attendee)
+        return Response(serializer.data)
+
+    def put(self, request, pk, format=None):
+        attendee = self.get_object(pk)
+        serializer = serializers.AttendeesSerializer(attendee, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        attendee = self.get_object(pk)
+        attendee.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 @api_view(["GET", ])

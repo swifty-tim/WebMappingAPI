@@ -7,9 +7,10 @@ from . import rest_views
 urlpatterns = [
     url(r'events/$', rest_views.EventList.as_view(), name="events"),
     url(r'events/(?P<pk>[0-9]+)/$', rest_views.EventDetail.as_view(), name="events1"),
+    url(r'attendee/$', rest_views.AttendeeList.as_view(), name="attendee"),
+    url(r'attendee/(?P<pk>[0-9]+)/$', rest_views.AttendeeDetail.as_view(), name="attendee1"),
     url(r'^token-auth/$', rest_views.obtain_auth_token, name='obtain-token-auth'),
     url(r'^register', rest_views.register, name="register"),
 ]
-
 
 urlpatterns = format_suffix_patterns(urlpatterns)
