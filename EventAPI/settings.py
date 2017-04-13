@@ -54,7 +54,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'EventAPI.urls'
-AUTH_USER_MODEL = 'event.User'
+#AUTH_USER_MODEL = 'event.User'
 
 TEMPLATES = [
     {
