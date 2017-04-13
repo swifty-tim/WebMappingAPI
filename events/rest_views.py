@@ -49,8 +49,8 @@ class EventList(APIView):
                     point = None
 
                 if point:
-                    # serializer.instance.last_location = point
-                    serializer.save(last_location=point)
+                    # serializer.instance.location = point
+                    serializer.save(location=point)
                 return serializer
             except:
                 pass
