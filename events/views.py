@@ -23,7 +23,7 @@ def landing(request):
     return render(request, 'events/landing.html')
 
 
-def register(request):
+def signup_view(request):
     if request.POST:
         form = forms.RegisterForm(request.POST)
         if form.is_valid():
@@ -51,7 +51,7 @@ def register(request):
     return render(request, 'events/signup.html', {'form': form})
 
 
-def login_(request):
+def login_view(request):
     if request.POST:
         form = forms.LoginForm(request.POST)
         if form.is_valid():
@@ -75,5 +75,13 @@ def login_(request):
     return render(request, 'events/login.html', {'form': form})
 
 
-def home(request):
-    return render(request, 'events/landing.html')
+class UserProfile(UpdateView):
+    form_class = forms.UserProfileForm
+    template_name = "events/user_profile.html"
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(UserProfile, self).dispatch(*args, **kwargs)
+
+    def get_object(self, queryset=None):
+        return get_user_model().objects.get(pk=self.request.user.pk)
