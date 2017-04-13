@@ -51,7 +51,7 @@ class EventList(APIView):
                 if point:
                     # serializer.instance.location = point
                     serializer.save(location=point)
-                return serializer
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
             except:
                 pass
             return Response(serializer.data, status=status.HTTP_201_CREATED)
