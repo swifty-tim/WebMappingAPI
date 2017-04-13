@@ -18,18 +18,12 @@ from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
 from django.utils.decorators import method_decorator
 
 
-class UpdateEvent(generics.CreateAPIView):
-    authentication_classes = (authentication.TokenAuthentication, authentication.SessionAuthentication)
+
+class createEvent(generics.CreateAPIView):
+    #authentication_classes = (authentication.TokenAuthentication, authentication.SessionAuthentication)
     serializer_class = serializers.EventSerializer
 
-    @method_decorator(csrf_exempt)
-    def dispatch(self, *args, **kwargs):
-        return super(UpdateEvent, self).dispatch(*args, **kwargs)
-
-    def get_object(self):
-        return get_user_model().objects.get(email=self.request.user.email)
-
-    def perform_update(self, serializer, **kwargs):
+    def perform_create(self, serializer):
         try:
             lat1 = float(self.request.data.get("lat", False))
             lon1 = float(self.request.data.get("lon", False))
@@ -61,7 +55,7 @@ class EventRetrieveAPI(generics.ListAPIView):
 
 
 class AttendeeRetrieveAPI(generics.ListAPIView):
-    serializer_class = serializers.EventSerializer
+    serializer_class = serializers.AttendeesSerializer
 
     def get_queryset(self):
         return models.Attendees.objects.all()
