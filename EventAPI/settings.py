@@ -25,7 +25,7 @@ SECRET_KEY = 'j88%qxnsgo+o7f25p)&@o$yu)&5djrs^yn!l65tfrbhuhpe#p&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework_gis',
+    'rest_framework.authtoken',
     'events'
 ]
 
@@ -51,6 +54,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'EventAPI.urls'
+AUTH_USER_MODEL = 'app.User'
 
 TEMPLATES = [
     {
@@ -78,10 +82,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'eventdb',
-	'USER': 'eventuser',
-	'PASSWORD': 'haha',
-	'HOST': 'localhost',
-	'PORT' : '',
+	    'USER': 'eventuser',
+	    'PASSWORD': 'haha',
+	    'HOST': 'localhost',
+	    'PORT' : '',
     }
 }
 
@@ -124,6 +128,21 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
-ALLOWED_HOSTS = ['104.236.108.142', 'localhost', '127.0.0.1']
+#ALLOWED_HOSTS = ['104.236.108.142', 'localhost', '127.0.0.1']
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
+
+CORS_ORIGIN_ALLOW_ALL = True
