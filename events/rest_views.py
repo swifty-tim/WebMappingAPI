@@ -23,6 +23,9 @@ class createEvent(generics.CreateAPIView):
     #authentication_classes = (authentication.TokenAuthentication, authentication.SessionAuthentication)
     serializer_class = serializers.EventSerializer
 
+    def get_queryset(self):
+        return models.Event.objects.get(owner=self.request.user)
+
     def perform_create(self, serializer):
         try:
             lat1 = float(self.request.data.get("lat", False))
