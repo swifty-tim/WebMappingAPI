@@ -75,7 +75,7 @@ class EventDetail(APIView):
 
     def put(self, request, pk, format=None):
         event = self.get_object(pk)
-        serializer = serializers.geo_serializers(event, data=request.data)
+        serializer = serializers.EventSerializer(event, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -113,7 +113,7 @@ class AttendeeDetail(APIView):
 
     def get_object(self, pk):
         try:
-            return models.Attendees.objects.get(pk=pk)
+            return models.Attendees.objects.get(event=pk)
         except models.Attendees.DoesNotExist:
             raise Http404
 

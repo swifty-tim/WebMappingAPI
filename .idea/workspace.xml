@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af04405d-3725-4f79-aaab-b14667a470b5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/events/serializers.py" afterPath="$PROJECT_DIR$/events/serializers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/events/rest_views.py" afterPath="$PROJECT_DIR$/events/rest_views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,11 +55,11 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="serializers.py" pinned="false" current-in-tab="true">
+              <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/events/serializers.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="450">
-                      <caret line="30" column="37" lean-forward="false" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+                    <state relative-caret-position="390">
+                      <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
                       <folding>
                         <element signature="e#0#20#0" expanded="true" />
                       </folding>
@@ -89,11 +89,11 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="rest_url.py" pinned="false" current-in-tab="false">
+              <file leaf-file-name="rest_url.py" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/events/rest_url.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="225">
-                      <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+                    <state relative-caret-position="120">
+                      <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="23" />
                       <folding>
                         <element signature="e#0#41#0" expanded="true" />
                       </folding>
@@ -118,8 +118,8 @@
               <file leaf-file-name="rest_views.py" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/events/rest_views.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="1222">
-                      <caret line="182" column="22" lean-forward="false" selection-start-line="182" selection-start-column="13" selection-end-line="182" selection-end-column="22" />
+                    <state relative-caret-position="397">
+                      <caret line="85" column="24" lean-forward="true" selection-start-line="85" selection-start-column="24" selection-end-line="85" selection-end-column="24" />
                       <folding>
                         <element signature="e#24#44#0" expanded="true" />
                       </folding>
@@ -136,8 +136,8 @@
           <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/events/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="21" column="27" lean-forward="true" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+                <state relative-caret-position="900">
+                  <caret line="60" column="9" lean-forward="false" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="9" />
                   <folding>
                     <element signature="e#52#91#0" expanded="true" />
                   </folding>
@@ -189,9 +189,9 @@
         <option value="$PROJECT_DIR$/EventAPI/urls.py" />
         <option value="$PROJECT_DIR$/events/models.py" />
         <option value="$PROJECT_DIR$/EventAPI/settings.py" />
-        <option value="$PROJECT_DIR$/events/rest_views.py" />
         <option value="$PROJECT_DIR$/events/rest_url.py" />
         <option value="$PROJECT_DIR$/events/serializers.py" />
+        <option value="$PROJECT_DIR$/events/rest_views.py" />
       </list>
     </option>
   </component>
@@ -1019,26 +1019,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/events/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="27" lean-forward="true" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-          <folding>
-            <element signature="e#52#91#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/events/rest_url.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/events/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
@@ -1049,22 +1029,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/events/rest_views.py">
+    <entry file="file://$PROJECT_DIR$/events/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1222">
-          <caret line="182" column="22" lean-forward="false" selection-start-line="182" selection-start-column="13" selection-end-line="182" selection-end-column="22" />
+        <state relative-caret-position="900">
+          <caret line="60" column="9" lean-forward="false" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="9" />
           <folding>
-            <element signature="e#24#44#0" expanded="true" />
+            <element signature="e#52#91#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/events/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="37" lean-forward="false" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+        <state relative-caret-position="390">
+          <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/events/rest_url.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/events/rest_views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="85" column="24" lean-forward="true" selection-start-line="85" selection-start-column="24" selection-end-line="85" selection-end-column="24" />
+          <folding>
+            <element signature="e#24#44#0" expanded="true" />
           </folding>
         </state>
       </provider>
