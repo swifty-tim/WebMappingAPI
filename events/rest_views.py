@@ -113,9 +113,7 @@ class AttendeeDetail(APIView):
 
     def get_object(self, pk):
         try:
-            attendees = models.Attendees.objects.all().filter(event=pk)
-            serializer = serializers.AttendeesSerializer(attendees, many=True)
-            return Response(serializer.data)
+            return models.Attendees.objects.get(event=pk)
         except models.Attendees.DoesNotExist:
             raise Http404
 
@@ -136,6 +134,23 @@ class AttendeeDetail(APIView):
         attendee = self.get_object(pk)
         attendee.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class AttendeesEvents(APIView):
+    """
+    Retrieve  AttendeeEvents instance.
+    """
+
+    def get_object(self, pk):
+        try:
+            return models.Attendees.objects.filter(event=pk)
+        except models.Attendees.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        attendees = self.get_object(pk)
+        serializer = serializers.AttendeesSerializer(attendees)
+        return Response(serializer.data)
 
 
 @api_view(["GET", ])
