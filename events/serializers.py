@@ -12,7 +12,7 @@ class EventSerializer(geo_serializers.GeoFeatureModelSerializer):
     class Meta:
         model = models.Event
         geo_field = "location"
-        fields = ('id' 'name', 'time', 'description', 'location', 'owner')
+        fields = ('id', 'name', 'time', 'description', 'location', 'owner')
 
 
 
