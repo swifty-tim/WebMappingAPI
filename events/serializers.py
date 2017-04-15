@@ -8,6 +8,11 @@ from django.contrib.auth import get_user_model
 from django.contrib.gis.geos import GEOSGeometry, LineString, Point, Polygon
 
 
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.User
+
+
 class EventSerializer(geo_serializers.GeoFeatureModelSerializer):
 
     class Meta:
@@ -24,7 +29,4 @@ class AttendeesSerializer(serializers.ModelSerializer):
         fields = ('id', 'attendee', 'event', 'attendee')
 
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.User
 
