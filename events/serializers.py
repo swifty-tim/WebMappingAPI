@@ -15,6 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class EventSerializer(geo_serializers.GeoFeatureModelSerializer):
+    owner = UserSerializer(read_only=True)
 
     class Meta:
         model = models.Event
