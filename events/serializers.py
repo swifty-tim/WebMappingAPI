@@ -16,9 +16,15 @@ class EventSerializer(geo_serializers.GeoFeatureModelSerializer):
         fields = ('id', 'name', 'time', 'description', 'location', 'owner')
 
 
-
 class AttendeesSerializer(serializers.ModelSerializer):
+    attendee = UserSerializer(read_only=True)
 
     class Meta:
         model = models.Attendees
-        fields = ('id', 'attendee', 'event')
+        fields = ('id', 'attendee', 'event', 'attendee')
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.User
+
