@@ -143,13 +143,13 @@ class AttendeesEvents(APIView):
 
     def get_object(self, pk):
         try:
-            return models.Attendees.objects.filter(event=pk)
+            return models.Attendees.filter(event=pk)
         except models.Attendees.DoesNotExist:
             raise Http404
 
     def get(self, request, pk, format=None):
         attendees = self.get_object(pk)
-        serializer = serializers.AttendeesSerializer(attendees)
+        serializer = serializers.AttendeesSerializer(attendees, many=True)
         return Response(serializer.data)
 
 
