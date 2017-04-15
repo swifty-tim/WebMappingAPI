@@ -143,7 +143,7 @@ class AttendeesEvents(APIView):
 
     def get_object(self, pk):
         try:
-            return models.Attendees.filter(event=pk)
+            return models.Attendees.objects.filter(event=pk)
         except models.Attendees.DoesNotExist:
             raise Http404
 
