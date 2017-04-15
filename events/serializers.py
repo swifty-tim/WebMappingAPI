@@ -12,7 +12,7 @@ class EventSerializer(geo_serializers.GeoFeatureModelSerializer):
     class Meta:
         model = models.Event
         geo_field = "location"
-        fields = ('name', 'time', 'description', 'location', 'owner')
+        fields = ('id' 'name', 'time', 'description', 'location', 'owner')
 
 
 
@@ -20,4 +20,4 @@ class AttendeesSerializer(geo_serializers.GeoFeatureModelSerializer):
 
     class Meta:
         model = models.Attendees
-        fields = ('attendee', 'event')
+        fields = ('id', 'attendee', 'event')
