@@ -20,4 +20,5 @@ class AttendeesSerializer(geo_serializers.GeoFeatureModelSerializer):
 
     class Meta:
         model = models.Attendees
+        geo_field = ""
         fields = ('id', 'attendee', 'event')
