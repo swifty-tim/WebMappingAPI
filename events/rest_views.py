@@ -113,7 +113,7 @@ class AttendeeDetail(APIView):
 
     def get_object(self, pk):
         try:
-            attendees = models.Attendees.objects.all(event=pk)
+            attendees = models.Attendees.objects.all().filter(event=pk)
             serializer = serializers.AttendeesSerializer(attendees, many=True)
             return Response(serializer.data)
         except models.Attendees.DoesNotExist:
