@@ -165,7 +165,7 @@ def obtain_auth_token(request):
         if user.is_active:
             try:
                 token = Token.objects.get_or_create(user=user)
-                return Response({"token": "{}".format(token[0])}, status=status.HTTP_200_OK)
+                return Response({"token": "{}".format(token[0]), "id": "{}".format(user.id)}, status=status.HTTP_200_OK)
             except Exception as e:
                 return Response({"message": "Could not generate token"})
         else:

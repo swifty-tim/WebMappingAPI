@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af04405d-3725-4f79-aaab-b14667a470b5" name="Default" comment="" />
+    <list default="true" id="af04405d-3725-4f79-aaab-b14667a470b5" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/events/rest_views.py" afterPath="$PROJECT_DIR$/events/rest_views.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,9 +16,9 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7209607">
+    <splitter split-orientation="horizontal" split-proportion="0.6842795">
       <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.3018182">
+        <splitter split-orientation="horizontal" split-proportion="0.2230303">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
@@ -46,14 +48,14 @@
             </leaf>
           </split-first>
           <split-second>
-            <splitter split-orientation="horizontal" split-proportion="0.7290997">
+            <splitter split-orientation="horizontal" split-proportion="0.59950656">
               <split-first>
                 <leaf>
                   <file leaf-file-name="rest_views.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/events/rest_views.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="562">
-                          <caret line="140" column="38" lean-forward="true" selection-start-line="140" selection-start-column="38" selection-end-line="140" selection-end-column="38" />
+                        <state relative-caret-position="502">
+                          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
                           <folding>
                             <element signature="e#24#44#0" expanded="true" />
                           </folding>
@@ -85,14 +87,24 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/events/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="885">
-                  <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+                <state relative-caret-position="540">
+                  <caret line="36" column="9" lean-forward="true" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
                   <folding>
                     <element signature="e#52#91#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+            <entry file="file://$USER_HOME$/MyVE/lib/python2.7/site-packages/django/contrib/auth/models.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="462">
+                  <caret line="307" column="32" lean-forward="true" selection-start-line="307" selection-start-column="32" selection-end-line="307" selection-end-column="32" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -915,14 +927,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/MyVE/lib/python2.7/site-packages/django/contrib/auth/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="597">
-          <caret line="308" column="22" lean-forward="true" selection-start-line="308" selection-start-column="22" selection-end-line="308" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/MyVE/lib/python2.7/site-packages/django/db/models/manager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="536">
@@ -975,16 +979,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/events/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
-          <folding>
-            <element signature="e#52#91#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/events/rest_url.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1015,10 +1009,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/MyVE/lib/python2.7/site-packages/django/contrib/auth/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/events/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="9" lean-forward="true" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+          <folding>
+            <element signature="e#52#91#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/MyVE/lib/python2.7/site-packages/django/contrib/auth/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="307" column="32" lean-forward="true" selection-start-line="307" selection-start-column="32" selection-end-line="307" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/events/rest_views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="140" column="38" lean-forward="true" selection-start-line="140" selection-start-column="38" selection-end-line="140" selection-end-column="38" />
+        <state relative-caret-position="502">
+          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
             <element signature="e#24#44#0" expanded="true" />
           </folding>
