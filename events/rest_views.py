@@ -75,7 +75,7 @@ class EventDetail(APIView):
 
     def put(self, request, pk, format=None):
         event = self.get_object(pk)
-        serializer = serializers.EventSerializer(event, data=request.data)
+        serializer = serializers.UpdateEventSerializer(event, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -99,7 +99,7 @@ class AttendeeList(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        serializer = serializers.AttendeesSerializer(data=request.data)
+        serializer = serializers.UpdateEventSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -124,7 +124,7 @@ class AttendeeDetail(APIView):
 
     def put(self, request, pk, format=None):
         attendee = self.get_object(pk)
-        serializer = serializers.AttendeesSerializer(attendee, data=request.data)
+        serializer = serializers.UpdateAttendeeSerializer(attendee, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
