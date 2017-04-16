@@ -33,7 +33,7 @@ class EventList(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        serializer = serializers.EventSerializer(data=request.data)
+        serializer = serializers.UpdateEventSerializer(data=request.data)
         if serializer.is_valid():
             try:
                 lat1 = float(self.request.data.get("lat", False))
@@ -99,7 +99,7 @@ class AttendeeList(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        serializer = serializers.UpdateEventSerializer(data=request.data)
+        serializer = serializers.UpdateAttendeeSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
