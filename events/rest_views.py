@@ -87,6 +87,21 @@ class EventDetail(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
+class EventsSearch(APIView):
+    """
+    Retrieve  AttendeeEvents instance.
+    """
+
+    def get_object(self, name):
+        try:
+            return models.Event.objects.filter(name=name)
+        except models.Attendees.DoesNotExist:
+            raise Http404
+
+    def get(self, request, name, format=None):
+        events = self.get_object(name)
+        serializer = serializers.EventSerializer(events, many=True)
+        return Response(serializer.data)
 
 
 class AttendeeList(APIView):

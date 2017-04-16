@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'events/(?P<pk>[0-9]+)/$', rest_views.EventDetail.as_view(), name="events1"),
     url(r'attendee/$', rest_views.AttendeeList.as_view(), name="attendee"),
     url(r'attendeesEvent/(?P<pk>[0-9]+)/$', rest_views.AttendeesEvents.as_view(), name="attendeeEvents"),
+    url(r'eventSearch/(?P<name>[a-z0-9]+)/$', rest_views.EventsSearch.as_view(), name="eventSearch"),
     url(r'attendee/(?P<id>[0-9]+)/$', rest_views.AttendeeDetail.as_view(), name="attendee1"),
     url(r'^token-auth/$', rest_views.obtain_auth_token, name='obtain-token-auth'),
     url(r'^register', rest_views.register, name="register"),
